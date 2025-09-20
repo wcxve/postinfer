@@ -96,8 +96,7 @@ jobs:
             --verbose
 
       - name: Run Tests
-        run: |
-          pytest
+        run: uv run --frozen pytest
 
       - name: Upload Test Results
         if: ${{ !cancelled() }}
