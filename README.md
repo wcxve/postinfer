@@ -1,6 +1,6 @@
 # PostInfer
 
-Post-inference toolkits for result summaries, diagnostics and reports.
+**Post-inference toolkits for result summaries, diagnostics and reports.**
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/postinfer?color=blue&logo=Python&logoColor=white&style=for-the-badge)](https://pypi.org/project/postinfer)
 [![PyPI - Version](https://img.shields.io/pypi/v/postinfer?color=blue&logo=PyPI&logoColor=white&style=for-the-badge)](https://pypi.org/project/postinfer)
