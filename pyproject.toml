@@ -16,12 +16,13 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
 ]
 dependencies = [
-  "corner~=2.2.2",
-  "matplotlib>=3.8.0",
-  "numpy>=1.24.1",
-  "scipy>=1.11.1",
+  # "corner~=2.2.2",
+  # "matplotlib>=3.8.0",
+  # "numpy>=1.24.1",
+  # "scipy>=1.11.1",
 ]
 dynamic = ["version"]
 
@@ -58,19 +59,19 @@ build-backend = "hatchling.build"
 [tool.coverage]
 run.source_pkgs = ["postinfer"]
 report.exclude_also = [
-    # Have to re-enable the standard pragma
-    "pragma: no cover",
-    # Don't complain about packages we have installed
-    "except ImportError",
-    # Don't complain if tests don't hit defensive assertion code:
-    "raise AssertionError",
-    "raise NotImplementedError",
-    # Don't complain about script hooks
-    "if __name__ == .__main__.:",
-    # typing.TYPE_CHECKING is False at runtime
-    "if TYPE_CHECKING:",
-    # Don't complain about abstract methods' implementations
-    '@(abc\.)?abstractmethod',
+  # Have to re-enable the standard pragma
+  "pragma: no cover",
+  # Don't complain about packages we have installed
+  "except ImportError",
+  # Don't complain if tests don't hit defensive assertion code:
+  "raise AssertionError",
+  "raise NotImplementedError",
+  # Don't complain about script hooks
+  "if __name__ == .__main__.:",
+  # typing.TYPE_CHECKING is False at runtime
+  "if TYPE_CHECKING:",
+  # Don't complain about abstract methods' implementations
+  '@(abc\.)?abstractmethod',
 ]
 report.show_missing = true
 
