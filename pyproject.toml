@@ -2,7 +2,7 @@
 name = "postinfer"
 description = "Post-inference toolkits for result summaries, diagnostics and reports."
 readme = "README.md"
-requires-python = ">=3.10, <=3.13"
+requires-python = ">=3.10, <3.14"
 license = "MIT"
 authors = [
   { name = "xuewc", email = "wcxuemail@gmail.com" },
