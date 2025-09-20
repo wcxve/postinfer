@@ -169,7 +169,7 @@ def round_pdg(
             s = rf'\left({s}\right) \times 10^{{{exp10}}}'
     else:
         err2_str = f'{err2 * f:.{p}f}'
-        s = f'{value}_{{-{err_str}}}^{{+{err2_str}}}'
+        s = f'{value_str}_{{-{err_str}}}^{{+{err2_str}}}'
         if exp10 != 0.0:
             s = rf'{s} \times 10^{{{exp10}}}'
     return f'${s}$'
