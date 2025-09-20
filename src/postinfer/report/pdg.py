@@ -94,7 +94,8 @@ def round_pdg(
         The exponent to display. If not provided, it will be determined based
         on the value and error.
     no_sci_nota_exp10_range : tuple of int, optional
-        Exponent in this range will not be formatted in scientific notation.
+        If the exponent of the last digit of errors is in this range,
+        then the result will not be formatted in scientific notation.
         If `exp10` is provided, it will be ignored.
         The default is ``(-1, 2)``.
     force_asymmetric : bool, optional
@@ -131,17 +132,24 @@ def round_pdg(
             err_avg = 0.5 * (err_abs + err2)
 
             if err_diff <= 0.1 * err_avg:
-                return round_pdg(value, err_avg, exp10=exp10)
+                return round_pdg(
+                    value,
+                    err_avg,
+                    exp10=exp10,
+                    no_sci_nota_exp10_range=no_sci_nota_exp10_range,
+                )
 
         err, precision_exp10 = round_err_pdg(err_abs)
+        err2_ = err2
         err2, precision2_exp10 = round_err_pdg(err2)
-        if err2 < err_abs:
+        if err2_ < err_abs:
             precision_exp10 = precision2_exp10
 
     if exp10 is None:
         exp10 = max(exp_of_first_sigfig(value), precision_exp10)
         if no_sci_nota_exp10_range[0] <= exp10 <= no_sci_nota_exp10_range[1]:
-            exp10 = 0
+            # Only set exp10=0 if it doesn't violate the precision constraint
+            exp10 = 0 if precision_exp10 <= 0 else exp10
     else:
         if exp10 < precision_exp10:
             warnings.warn(
