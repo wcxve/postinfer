@@ -87,6 +87,7 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
+          uv venv
           uv pip compile pyproject.toml \
             --output-file requirements.txt \
             --resolution ${{ matrix.uv-resolution }}
